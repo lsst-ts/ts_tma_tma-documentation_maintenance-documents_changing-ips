@@ -217,3 +217,8 @@ axesPxiIp = 139.229.171.26
 tmaIsIp = 192.168.180.10
 mcc = 139.229.171.6
 ```
+
+### Chronyd
+
+While using the chronyd service for time sync, the configuration file for the service must be updated to match the IP
+changes. There is a different file in each device, MCC, TMA PXI, AUX PXI and AXES PXI, located at `/etc/chrony.conf`.
