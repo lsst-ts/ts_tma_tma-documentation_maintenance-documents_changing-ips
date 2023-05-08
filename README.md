@@ -5,7 +5,7 @@
 This document gathers all the different locations where the IPs must be updated after changing the IP of the network
 interfaces for each device.
 
-In next list some locations are described. These locations will be used along the document as reference only:
+In the next list some locations are described. These locations will be used along the document as reference only:
 
 - EUI configuration file --> `/usr/local/TMA/data/HMIConfig.xml`
 - PXI configuration file --> `/c/Configuration/TMA_PXI_RT_MainConfig.ini` This file has a different name in the
@@ -114,9 +114,7 @@ file.
 String Array Telemetry Data 0.url = "psp://192.168.209.10/PXIComm_NSV/Azimuth Interlocks"
 ```
 
-### Ethernet devices in the TMA
-
-#### Bosch controller (MLC)
+### Bosch controller (MLC)
 
 The bosch controller connection IP is a settings, so it can be modified using the EUI. In the EUI navigate to *SETTINGS*
 and then to *BOSCH SYSTEM SETTINGS*. In this window update the address field to match the new IP set on the Bosch Controller.
@@ -132,7 +130,7 @@ visible for the maintenance level user, not all users can save settings.
 > All settings sets must be updated with this new setting value, otherwise the IP will go back to its original value
 > when a new set is applied
 
-#### Main Cabinet temperature controller
+### Main Cabinet temperature controller
 
 The communication IP for the main cabinet controller, AZ-CBT-0001, is also a setting, the same procedure as for the
 [Bosch Controller](#bosch-controller-mlc) must be carried out.
@@ -144,7 +142,7 @@ The communication IP for the main cabinet controller, AZ-CBT-0001, is also a set
 > All settings sets must be updated with this new setting value, otherwise the IP will go back to its original value
 > when a new set is applied
 
-#### Encoder system (EIB)
+### Encoder system (EIB)
 
 For the encoder there are 2 IPs that must be updated, one in the encoder settings and one in the EIB configuration file,
 located in the TMA PXI `/c/Configuration/EIB/multi_ext.txt`.
@@ -157,7 +155,7 @@ located in the TMA PXI `/c/Configuration/EIB/multi_ext.txt`.
   - UDP destination:
     ![Encoder config file UDP destination IP](media/EncoderConfigFile.png)
 
-#### Modbus temperature controllers
+### Modbus temperature controllers
 
 Update the configuration files in the AuxPXI located at `/c/Configuration/ModbusTemperatureControllers` named
 **XXX_config.ini** that have the following format:
@@ -172,13 +170,13 @@ UpdateTime_ms = 500
 Unit ID = 10
 ```
 
-#### Analog and Digital telemetry in AUX PXI
+### Analog and Digital telemetry in AUX PXI
 
 The telemetry from the analog and digital inputs of the TMA is obtained in the AUX PXI, this targets the inputs from the
 TMA PXI. Therefore the `TelemetryConfig.ini` config file located at `/c/Configuration/TelemetryConfig` must be updated
 accordingly.
 
-#### TekNSV Variables between PXIs
+### TekNSV Variables between PXIs
 
 TMA and AUX PXIs interchange several TekNSV variables these are sent over a TCP connection, this connection has a
 configuration file in each PXI `/c/Configuration/TekNSVs/VariablesToSubscribeClientConfig.xml`.
@@ -200,7 +198,7 @@ configuration file in each PXI `/c/Configuration/TekNSVs/VariablesToSubscribeCli
 </GXML_Root>
 ```
 
-#### Additional IPs
+### Additional IPs
 
 For communications between the PXIs and the targets there are places where the IPs were originally hardcoded, these IPs
 are now configurable with a specific section in the EUI configuration file. This section has the following options:
