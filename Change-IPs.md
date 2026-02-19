@@ -198,6 +198,21 @@ configuration file in each PXI `/c/Configuration/TekNSVs/VariablesToSubscribeCli
 </GXML_Root>
 ```
 
+### OSS
+
+The TMA control system communicates with the OSS (Oil Supply System) by modbus TCP, therefore if the OSS IP is changed
+the AUX PXI must be updated to point to the new IP. This can be done by modifying the `/c/Configuration/OSS/ServerConfig.ini`
+to update the `Address` field. Once the file is modified the AUX PXI must be rebooted to update the change.
+
+```ini
+[ModbusServerConfiguration]
+IsMaster = TRUE
+Address = "192.168.209.130"
+Port = 50052
+Little Endian = FALSE
+UpdateTime_ms = 100
+```
+
 ### Additional IPs
 
 For communications between the PXIs and the targets there are places where the IPs were originally hardcoded, these IPs
